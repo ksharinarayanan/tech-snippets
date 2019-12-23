@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+            
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="blog" style="margin-top:200px;padding:15px 15px 2500px;font-size:30px; overflow: 
+hidden;">
+
+    <div class="row">
+        <div class="col-xs-2 col-md-1"> 
+
+        </div>
+        {% for blog in blogs %}
+        <div class="panel1">
+            <div class="col-md-10 col-xs-2"
+                onclick="location.href='{{ blog.id }}/';" style="cursor: pointer;">
+
+                <div class="row">
+                    <div class=" col-md-4 col-xs-2 ">
+                        {{ blog.title }}
+                        <br>
+                        {{ blog.author}}
+                    </div>
+                    <div class="col-md-5  col-xs-2">
+                        {{ blog.date }}
+                    </div>
+                    <div class="col-md-3 col-xs-2">
+                        {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="" width="100%" height="100%">
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class=" col-md-1 col-xs-2 "> </div>
+    </div>
+</div>
+{% endblock %}
+

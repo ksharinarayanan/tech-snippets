@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+            
+{% endblock %}
+
+
+{% block body %}
+    
+            <div style="color:aliceblue">
+
+                <li>{{ blog.title }}</li>
+                <li>{{ blog.author }}</li>
+                <li>{{ blog.date }}</li> 
+                <li>{{ blog.description }}</li>
+                <li><img src="{{ blog.image.url }}" alt="image not found"></li>
+            </div>  
+
+{% endblock %}

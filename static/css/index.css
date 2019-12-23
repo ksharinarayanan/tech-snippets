@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+:root {
+    --bggradient: linear-gradient(to right, #EDAE49, black);
+}
+
+#header {
+    text-align: center;
+    background-color: #FF331F;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px 10px;
+    z-index: 1;
+    font-weight: bold;
+    position: fixed;
+
+    top: 0;
+    width: 100%;
+    transition: 0.2s;
+
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.blog .row .col-md-10 {
+    background-color: #EDAE49;
+
+    align-content: center;
+    padding: 20px 20px;
+
+    border-radius: 25px;
+    border-color: black;
+    border-top-color: black;
+    margin: 0px auto;
+
+
+}
+
+
+
+.col-md-10:hover {
+
+    box-shadow: 0px 7px 15px #C9871C;
+    ;
+    border-block-end-style: none;
+}
+
+.col-md-10 .row .col-md-5 {
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+}
+
+.col-md-10 .row .col-md-4 {
+    color: black;
+}
+
+/*#003459*/
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+
+    font-family: 'Montserrat', sans-serif;
+
+    background: black;
+
+}
+
+/* #header
+{
+
+
+font-weight: bold;
+position: fixed;
+top: 0;
+width: 100%;
+transition: 0.2s;
+}
+*/
+
+/*
+making changes from here 
+*/
+
+
+
