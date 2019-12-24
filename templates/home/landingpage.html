@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Landing Page - Tech Snippets</title>
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+{% endblock %}
+
+{% block script %}
+<script>
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+
+            document.getElementById("scrolling-header").style.fontSize = "25px";
+            document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
+            document.getElementById("scrolling-header").style.textAlign = "left";
+
+            document.getElementById("scrolling-header").style.backgroundColor = "#FF331F";
+            document.getElementById("scrolling-header").style.visibility = "visible";
+
+        } else {
+            document.getElementById("scrolling-header").style.visibility = "hidden";
+        }
+    }
+
+    var
+        words = ['We are Technophiles!'],
+        part,
+        i = 0,
+        offset = 0,
+        len = words.length,
+        forwards = true,
+        skip_count = 0,
+        skip_delay = 5,
+        speed = 220;
+
+    var wordflick = function () {
+        setInterval(function () {
+            if (forwards) {
+                if (offset >= words[i].length) {
+                    ++skip_count;
+                    if (skip_count == skip_delay) {
+                        forwards = false;
+                        skip_count = 0;
+                    }
+                }
+            }
+            else {
+                if (offset == 0) {
+                    forwards = true;
+                    i++;
+                    offset = 0;
+                    if (i >= len) {
+                        i = 0;
+                    }
+                }
+            }
+            part = words[i].substr(0, offset);
+            if (skip_count == 0) {
+                if (forwards) {
+                    offset++;
+                }
+                else {
+                    offset--;
+                }
+            }
+            $('.word').text(part);
+        }, speed);
+    };
+
+    $(document).ready(function () {
+        wordflick();
+    });
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid" id="head">
+    <div class="header">
+        <h1 class="word">We are Technophiles!</h1>
+        <a href="#blog">Read Blogs.</a>
+
+    </div>
+</div>
+<div class="flimg">
+    <div class="row">
+        <div class="col-md-6" id="fl">
+            <img src="{% static 'images/undraw_typewriter_i8xd.svg' %}" alt="" id="rahul">
+        </div>
+        <div class="col-md-6" id="akil">
+
+            <h1>
+                Featured
+            </h1>
+
+            {% for blog in featured %}
+            <div class="card" onclick="location.href='/blog/{{ blog.id }}/';" style="cursor: pointer;">
+                <img src="{{ blog.image.url }}" class="card-img-top" alt="...">
+                <hr>
+                <div class="card-body">
+                    <h2 class="card-title">{{ blog.title }}</h2>
+                    <p class="card-text">{{ blog.summary }}</p>
+                    <a href="/blog/{{ blog.id }}/">Read Blog.</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<div class="trending" id="trending">
+    <h1>Trending</h1>
+    <div class="row">
+        {% for blog in trending %}
+        <div class="col-md-3 d-flex ">
+
+            <div class="card" onclick="location.href='/blog/{{ blog.id }}/" style="cursor: pointer;">
+                <img src="{{ blog.image.url }}" class="card-img-top" alt="..." id="pix">
+                <div class="card-body">
+                    <h3 class="card-title">{{ blog.title }}</h3>
+                    <p class="card-text">{{ blog.summary }}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+<div class="blog" style="margin-top:200px;padding:15px 15px 2500px;font-size:30px; overflow: 
+hidden;" id="blog">
+    <h1>Daily Blog.</h1>
+    {% for blog in trending %}
+    <div class="row" style="padding-bottom: 60px;">
+        
+        <div class="col-xs-2 col-md-1"> </div>
+        <div class="panel1">
+            <div class="col-md-10 col-xs-2" onclick="location.href='/blog/{{ blog.id}}/'"
+                style="cursor: pointer;">
+
+                <div class="row">
+                    <div class=" col-md-4 col-xs-2 ">
+                        {{ blog.title }}
+                    </div>
+                    <div class="col-md-5  col-xs-2">
+                        {{ blog.summary }}
+                    </div>
+                    <div class="col-md-3 col-xs-2">
+                        <img src="{{ blog.image.url }}" alt="" width="100%" height="100%">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class=" col-md-1 col-xs-2 "> </div>
+    </div>
+    {% endfor %}
+</div>
+<footer>
+    <div class="container-fluid p-0">
+        <div class="row text-left">
+            <div class="col-md-5 col-sm-5">
+                <h4 class="fo">About us</h4>
+                <p class="textmo">hsdfifrhid tid tking kohli is used to participater in online competioto</p>
+
+
+            </div>
+            <div class="col-md-5 col-sm-5" id="aaa">
+                <h4 class="fo">Queries and Updates</h4>
+
+
+                <p class="textmo">Let us be social</p>
+                <div class="column">
+                    <i class="fa fa-facebook-f"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-youtube"></i>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+</footer>
+<style>
+    #scrolling-header {
+        background-color: black;
+        visibility: hidden;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+
+    html {
+        height: 100%;
+    }
+
+
+    body {
+
+        background-color: black;
+        background-size: 100vw 100vh;
+        background-repeat: no-repeat;
+
+    }
+
+    /* .word {
+        margin: auto;
+        color: white;
+        text-align: center;
+        font-weight: bolder;
+        font: 200 normal 4em/1.5 'Montserrat', sans-serif;
+        text-shadow: 1px 2px #288ce3, 2px 4px #288ce3, 3px 6px #288ce3, 4px 8px #288ce3, 5px 10px #288ce3, 6px 12px #288ce3, 7px 14px #288ce3, 8px 16px #288ce3, 9px 18px #288ce3, 10px 20px #288ce3;
+    } */
+</style>
+{% endblock %}

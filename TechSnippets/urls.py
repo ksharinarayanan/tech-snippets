@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', home_view),
-    path('blog/', blog_view),
+    #path('blog/', blog_view),
     path('blog/<int:id>/', blog_detail_view)
 ]
 

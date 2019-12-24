@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Story Page Template</title>
+
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="{% static 'css/story.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+<!-- <div style="color:aliceblue">
+
+    <li>{{ blog.title }}</li>
+    <li>{{ blog.author }}</li>
+    <li>{{ blog.date }}</li>
+    <li>{{ blog.description }}</li>
+    <li><img src="{{ blog.image.url }}" alt="image not found"></li>
+</div> -->
+
+<div class="header">
+
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand" href="#">
+                <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+            </a>
+            <div class="mr-auto"></div>
+
+        </nav>
+
+
+
+
+
+    </div>
+
+    <div class="hola" style="padding-top: 50px;">
+        <div class="row">
+            <div class="col-md-6 col-xs-2">
+
+                <img src="{{ blog.image.url }}" id="akil" alt="" class="pic">
+
+            </div>
+            <div class="col-md-6 col-xs-2 " id="short">
+                <h1>{{ blog.title }}</h1>
+                <p>{{ blog.summary }}</p>
+                <p class="dat" id="dat">
+                    {{ blog.author }} | {{ blog.date }}
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+<div class="whole">
+    <div class="row">
+        <div class="col-md-12 col-xs-2">
+            <h1><!-- Apple Review Goes Here --></h1>
+            <p>
+                {{ blog.description }}
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <!-- <div class="comment">
+        <h1>Comment down your view.</h1>
+        <hr class="comm">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <button type="button" class="btn btn-outline-success" id="combut">Comment</button>
+        </form>
+    </div> -->
+    {% if all_blogs %}
+    <hr class="comm"> 
+    <div class="re" id="re">
+        <h1>We Recommend you :)</h1>
+    </div>
+    <div class="sec">
+        <div class="row">
+            {% for each_blog in all_blogs %}
+            <div class="col-md-4">
+                {% if each_blog.id != blog.id %}
+                <div class="card" onclick="location.href='/blog/{{ each_blog.id }}';"
+                    style="cursor: pointer;">
+                    <img src="{{ each_blog.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ each_blog.title }}</h5>
+                        <p class="card-text">{{ each_blog.summary }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+                      
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<footer>
+    <div class="container-fluid p-0">
+        <div class="row text-left">
+            <div class="col-md-5 col-sm-5">
+                <h4 class="fo">About us</h4>
+                <p class="textmo">hsdfifrhid tid tking kohli is used to participater in online competioto</p>
+
+
+            </div>
+            <div class="col-md-5 col-sm-5" id="aaa">
+                <h4 class="fo">Queries and Updates</h4>
+
+
+                <p class="textmo">Let us be social</p>
+                <div class="column text-light">
+                    <i class="fa fa-facebook-f"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-youtube"></i>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+{% endblock %}

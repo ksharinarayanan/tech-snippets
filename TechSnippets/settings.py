@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     #own apps
     'blog',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'TechSnippets.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'techsnippets',
         'USER': 'techsnippets@techsnippets',
         'PASSWORD': 'Incorrect@1234',
@@ -93,7 +94,7 @@ DATABASES = {
         'PORT': '',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'},
+                'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'},
         },
     }
 }
