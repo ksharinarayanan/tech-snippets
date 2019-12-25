@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Blog
+
 from comments.forms import CommentForm
+from comments.models import Comments
+
 # Create your views here.
 def blog_view(request):
     obj = Blog.objects.all().order_by('date').reverse()
@@ -20,7 +23,11 @@ def blog_detail_view(request, id):
     comment_form = CommentForm()
 
     if request.method == "POST":
-        print(request.POST.get('comment'))
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            print(comment_form.cleaned_data)
+            Comments.objects.create(**comment_form.cleaned_data)
+
     content = {
         'blog' : obj,
         'all_blogs' : all_obj,
