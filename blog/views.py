@@ -23,10 +23,7 @@ def blog_detail_view(request, id):
     comment_form = CommentForm()
 
     if request.method == "POST":
-        comment_form = CommentForm(request.POST)
-        if comment_form.is_valid():
-            print(comment_form.cleaned_data)
-            Comments.objects.create(**comment_form.cleaned_data)
+        print("hi")
 
     content = {
         'blog' : obj,

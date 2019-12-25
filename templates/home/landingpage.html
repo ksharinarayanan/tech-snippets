@@ -133,7 +133,7 @@
         {% for blog in trending %}
         <div class="col-md-3 d-flex ">
 
-            <div class="card" onclick="location.href="/blog/{{ blog.id }}/" style="cursor: pointer;">
+            <div class="card" onclick="location.href='/blog/{{ blog.id }}/'" style="cursor: pointer;">
                 <img src="{{ blog.image.url }}" class="card-img-top" alt="..." id="pix">
                 <div class="card-body">
                     <h3 class="card-title">{{ blog.title }}</h3>
