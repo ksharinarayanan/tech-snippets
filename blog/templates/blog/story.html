@@ -80,22 +80,31 @@
     </div>
 </div>
 <div>
-    <!-- <div class="comment">
+    <div class="comment">
         <h1>Comment down your view.</h1>
         <hr class="comm">
-        <form>
+        <form action="." method="POST"> {% csrf_token %}
+            <!-- {{ form.as_p }} -->
             <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <label for="exampleFormControlInput1">Name</label>
+                <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="">
             </div>
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Comment</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="">
             </div>
-            <button type="button" class="btn btn-outline-success" id="combut">Comment</button>
+
+            
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Comment</label>    
+                <textarea class="form-control" name="comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
         </form>
-    </div> -->
+    </div>
     {% if all_blogs %}
     <hr class="comm"> 
     <div class="re" id="re">

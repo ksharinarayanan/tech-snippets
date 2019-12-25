@@ -2,6 +2,11 @@
     --bggradient: linear-gradient(to bottom, #ffb235, rgb(209, 129, 0));
 }
 
+html,
+body {
+    overflow-wrap: break-word;
+}
+
 #head {
     background: var(--bggradient);
     width: 100%;
@@ -10,25 +15,6 @@
     position: relative;
 
 
-
-}
-
-#scrolling-header {
-    text-align: center;
-    background-color: #EDAE49;
-    color: black;
-    font-size: 50px;
-    font-weight: bold;
-    padding: 10px 10px;
-    z-index: 1;
-    font-weight: bold;
-    position: fixed;
-
-    top: 0;
-    width: 100%;
-    transition: 0.2s;
-
-    font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -215,6 +201,84 @@ footer h4 {
 
 }
 
+#trending .row .col-md-3:hover {
+    transform: scale(1.1);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    #akil {
+        margin-left: 21%;
+        width: 75%;
+
+
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    body {
+        width:
+    }
+
+
+
+
+
+
+
+    .col-md-10 .row .col-md-4 {
+        color: black;
+        font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+        font-weight: 900;
+        overflow-wrap: break-word;
+
+
+    }
+
+    #space {
+        width: 75%;
+    }
+
+    .col-md-10 {
+        width: 75%;
+
+        left: -7%;
+    }
+
+
+
+    #rahul {
+        align-content: center;
+        margin-left: -40px;
+    }
+
+    #head {
+        width: 100%;
+
+    }
+
+
+
+    .trending {
+        width: 100%;
+    }
+
+    #akil .card img {
+        width: 200px;
+
+        height: 200px;
+        align-content: center;
+
+    }
+
+    .trending .row .col-md-3 {
+        padding-bottom: 3em;
+        width: max-width;
+
+    }
+}
+
 /*full*/
 
 .blog .row .col-md-10 {
@@ -230,6 +294,7 @@ footer h4 {
 
 
 }
+
 
 
 
@@ -254,6 +319,8 @@ footer h4 {
     font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
     font-weight: 900;
     color: black;
+    width: fit-content;
+
 }
 
 .col-md-10 .row .col-md-4 {
@@ -261,6 +328,7 @@ footer h4 {
     font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
     font-weight: 900;
     overflow-wrap: break-word;
+
 }
 
 .flimg {

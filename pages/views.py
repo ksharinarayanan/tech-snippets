@@ -15,3 +15,4 @@ def home_view(request, *args, **kwargs):
     }
 
     return render(request, 'home/landingpage.html', content)
+

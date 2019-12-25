@@ -31,9 +31,9 @@ urlpatterns = [
 
     path('', home_view),
     #path('blog/', blog_view),
-    path('blog/<int:id>/', blog_detail_view)
-]
+    path('blog/<int:id>/', blog_detail_view),
 
+]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
