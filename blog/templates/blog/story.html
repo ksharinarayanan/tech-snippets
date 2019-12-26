@@ -30,7 +30,7 @@
     <li><img src="{{ blog.image.url }}" alt="image not found"></li>
 </div> -->
 
-<div id="scrolling-header">
+<div id="scrolling-header" onclick="location.href='/'" style="cursor: pointer;">
     <p>Tech Snippets</p>
 </div>
 
@@ -62,7 +62,7 @@
                 <h1>{{ blog.title }}</h1>
                 <p>{{ blog.summary }}</p>
                 <p class="dat" id="dat">
-                    {{ blog.author }} | {{ blog.date }}
+                    <a href="/{{ blog.author }}/">{{ blog.author }}</a> | {{ blog.date }}
                 </p>
 
             </div>
@@ -91,9 +91,35 @@
         <hr class="comm">
         <form action="." method="POST"> {% csrf_token %}
             {{ form.as_p }}
+            <!-- {{ form.email.errors }} -->
             <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
         </form>
+        {% if form.name.errors %}
+            <script>alert("Please enter a valid name!")</script>
+        {% endif %}
+        {% if form.email.errors %}
+            <script>alert("Please enter a valid email address!")</script>
+        {% endif %}
+        {% if form.comment.errors %}
+            <script>alert("Please enter a valid comment!")</script>
+        {% endif %}
     </div>
+    {% if comments %}
+        <div style="color: white;">
+            {% for comment in comments %}
+                {{ comment.name }} : {{ comment.comment }} <br>
+            {% endfor %}
+        </div>
+        {% if new_comment %}
+            <script>alert("comment added")</script>
+        {% endif %}
+        
+    {% else %}
+        <div style="color: white;">
+            No comments yet!
+        </div>
+    {% endif %}
+    
     {% if all_blogs %}
     <hr class="comm">
     <div class="re" id="re">
@@ -120,7 +146,7 @@
     {% endif %}
 </div>
 
-<footer>
+<!-- <footer>
     <div class="container-fluid p-0">
         <div class="row text-left">
             <div class="col-md-5 col-sm-5">
@@ -135,8 +161,8 @@
 
                 <p class="textmo">Let us be social</p>
                 <div class="column text-light">
-                    <i class="fa fa-facebook-f"></i>
-                    <i class="fa fa-instagram"></i>
+                    <a href="https://www.google.com"><i class="fa fa-facebook-f"></i></a> 
+                    <a href="https://www.instagram.com/tech_snippets/"><i class="fa fa-instagram"></i></a>
                     <i class="fa fa-twitter"></i>
                     <i class="fa fa-youtube"></i>
                 </div>
@@ -149,7 +175,7 @@
     </div>
 
 
-</footer>
+</footer> -->
 
 
 

@@ -15,6 +15,7 @@
 
 }
 
+
 #scrolling-header {
     text-align: center;
     background-color: #EDAE49;
@@ -350,6 +351,10 @@ footer h4 {
     color: black;
 }
 
+.errorlist{
+    color: white;
+}
+
 /*
 
 .hola .row {
@@ -464,3 +469,4 @@ footer h4 {
 
     }
 }
+

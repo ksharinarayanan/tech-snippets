@@ -5,9 +5,9 @@ from blog.models import Blog
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    featured = Blog.objects.all().order_by('date').reverse()[:1]
+    featured = Blog.objects.all().order_by('id').reverse()[:1]
     
-    trending = Blog.objects.all().order_by('date').reverse()
+    trending = Blog.objects.all().order_by('id').reverse()
 
     content = {
         'featured' : featured,

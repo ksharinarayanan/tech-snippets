@@ -18,7 +18,8 @@ from django.urls import path
 
 from pages.views import home_view
 from blog.views import blog_view
-from blog.views import blog_detail_view
+from blog.views import blog_detail_view, author_view
+
 
 from . import settings
 
@@ -32,6 +33,7 @@ urlpatterns = [
     path('', home_view),
     #path('blog/', blog_view),
     path('blog/<int:id>/', blog_detail_view),
+    path('<str:author>/', author_view)
 
 ]
 
