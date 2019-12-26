@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --bggradient: linear-gradient(to bottom, #ffb235, rgb(209, 129, 0));
 }
 
@@ -291,6 +291,350 @@ footer h4 {
 .blog{
     min-width: 1000px;
 }
+
+
+.blog h1 {
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: #EDAE49;
+    padding-bottom: 0.5em;
+    margin-left: 110px;
+
+}
+
+.col-md-10:hover {
+
+    box-shadow: 0px 7px 15px #C9871C;
+    ;
+    border-block-end-style: none;
+}
+
+.col-md-10 .row .col-md-5 {
+    font-size: 20px;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: black;
+    width: fit-content;
+
+}
+
+.col-md-10 .row .col-md-4 {
+    color: black;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    overflow-wrap: break-word;
+
+}
+
+.flimg {
+    padding-bottom: 4em;
+}
+
+.flimg .row .col-md-6 .card img {
+    width: 500px;
+    height: 500px;
+    align-content: center;
+    margin: 0px auto;
+} */
+
+:root {
+    --bggradient: linear-gradient(to bottom, #ffb235, rgb(209, 129, 0));
+}
+
+html,
+body {
+    overflow-wrap: break-word;
+}
+
+#head {
+    background: var(--bggradient);
+    width: 100%;
+    height: 70vh;
+    z-index: 0;
+    position: relative;
+
+
+
+}
+
+.trending {
+    background: var(--bggradient);
+}
+
+.trending {
+    padding: 5em;
+}
+
+.trending .row .col-md-3 .card {
+    background: black;
+    box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.2);
+
+    color: white;
+    border-radius: 12px;
+}
+
+.trending h1 {
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: black;
+}
+
+.trending .row .col-md-3 .card .card-body h3 {
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: white;
+}
+
+.trending .row .col-md-3 .card .card-body p {
+    font-family: -apple-system-body, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+#pix {
+    width: 100%;
+    height: 200px;
+    margin: 0px auto;
+
+}
+
+.card hr {
+    border-top: 2px solid black;
+}
+
+.trending .col-md-3 {
+    min-height: 500px;
+}
+
+.card-body a {
+    text-decoration: none;
+    margin-top: 3em;
+    position: relative;
+    color: rgb(209, 129, 0);
+    background: black;
+    padding: 0.5em 1em;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+}
+
+.header a {
+    text-decoration: none;
+    margin-top: 3em;
+    position: relative;
+    color: rgb(209, 129, 0);
+    background: black;
+    padding: 0.5em 1em;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+}
+
+.header a:hover {
+    background: rgb(29, 28, 28);
+}
+
+
+.header {
+
+    margin-left: 30%;
+    padding-top: 8em;
+    ;
+}
+
+
+#rahul {
+    padding: 6em 3em;
+    margin-left: 2%;
+    width: 500px;
+    margin-top: 150px;
+    height: 500px;
+}
+
+.card-body h2 {
+    font-family: -apple-system-headline, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: black;
+}
+
+.card-body p {
+    font-family: -apple-system-body, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    color: black;
+}
+
+
+
+.container-fluid h1 {
+
+
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    padding-bottom: 0.2em;
+    color: black;
+
+    font-size: 45px;
+
+
+
+}
+
+body {
+    background: black;
+}
+
+
+footer {
+    background: rgba(0, 0, 0, 0.815);
+    overflow-x: hidden;
+    margin-left: 20vim;
+    padding: 14vmin 18vmin;
+    font-family: -apple-system-headline, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+}
+
+footer .fo {
+    color: black;
+    font-family: -apple-system-caption, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+
+}
+
+#aaa {
+    margin-left: 150px;
+}
+
+footer {
+    background-color: #EDAE49;
+    color: black;
+}
+
+footer p>span {
+    color: #ff512f;
+}
+
+footer h4 {
+    color: black;
+}
+
+
+.flimg .row .col-md-6 h1 {
+
+
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+
+
+
+    color: rgb(209, 129, 0);
+}
+
+#akil {
+    padding-top: 4em;
+    right: 7%;
+
+
+
+}
+
+#trending .row .col-md-3:hover {
+    transform: scale(1.1);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    #akil {
+        margin-left: 21%;
+        width: 75%;
+
+
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+
+
+
+
+
+
+
+
+    .col-md-10 .row .col-md-4 {
+        color: black;
+        font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+        font-weight: 900;
+        overflow-wrap: break-word;
+
+
+    }
+
+    #space {
+        width: 75%;
+    }
+
+    .col-md-10 {
+        width: 75%;
+
+        left: -7%;
+    }
+
+    #aaa {
+        margin-left: -2.5%;
+    }
+
+    #rahul {
+        align-content: center;
+        margin-left: -40px;
+    }
+
+    #head {
+        width: 100%;
+
+    }
+
+
+
+    .trending {
+        width: 100%;
+    }
+
+    #akil .card img {
+        width: 200px;
+
+        height: 200px;
+        align-content: center;
+
+    }
+
+    .trending .row .col-md-3 {
+        padding-bottom: 3em;
+        width: max-width;
+
+    }
+}
+
+/*full*/
+
+.blog .row .col-md-10 {
+    background-color: #EDAE49;
+
+    align-content: center;
+    padding: 20px 20px;
+
+    border-radius: 25px;
+    border-color: black;
+    border-top-color: black;
+    margin: 0px auto;
+
+
+}
+
+
 
 
 .blog h1 {
