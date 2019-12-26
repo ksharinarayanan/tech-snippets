@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+:root {
+    --bggradient: linear-gradient(to right, #ffb235, rgb(209, 129, 0));
+}
+
+.section1 {
+    padding: 2vmin 0vmin;
+}
+
+.akil {
+    margin-top: 20px;
+    font-size: 10%;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+
+}
+
+.akil h1 {
+    color: black;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: lightgray;
+}
+
+body {
+    background: var(--bggradient);
+}
+
+@media only screen and (min-width:300px) and (max-width:500px) {
+    #hari {
+        margin-top: 600px;
+    }
+}
+
+.panel i {
+    font-size: 50px;
+
+    color: rgb(209, 129, 0);
+    align-content: center;
+
+}
+
+.panel {
+    height: 500px;
+}
+
+.section1 .row .col-md-10 .panel {
+    position: absolute;
+    top: 7vmin;
+    left: 3em;
+    right: 3em;
+
+    background: black;
+    border-radius: 3px;
+
+    padding: 13vmin 3vmin 15vmin 4vmin;
+    box-shadow: 0px 25px 42px rgba(0, 0, 0, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1;
+}
+
+.section1 .row .col-md-10 .panel h1 {
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(209, 129, 0);
+
+}
+
+.section1 .row .col-md-10 .panel a {
+    text-decoration: underline;
+    font-size: 1.3em;
+    color: rgb(209, 129, 0);
+}
+
+.section1 .row .col-md-10 .panel p {
+    font-size: 1.3em;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+/*header kinda*/
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: black;
+
+}
+
+.navbar-brand {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    text-decoration: none;
+}
+
+.nav-item:last-child {
+    padding-right: 10.5em;
+}
+
+.nav-link {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.nav-item {
+    padding: 0.9em;
+    color: black;
+}
+
+.navbar-brand {
+    padding-left: 8rem;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+/*footer*/
+
+footer {
+    background: rgba(0, 0, 0, 0.815);
+    overflow-x: hidden;
+    padding: 14vmin 18vmin;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer p>span {
+    color: #ff512f;
+}
+
+footer input {
+    border: none !important;
+}
+
+footer input::placeholder {
+    color: white !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer .input-group .input-group-text {
+    background: var(--bggradient);
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer .column i {
+    color: #dd2476;
+}
+
+/* It is Adjacent sibling combinator */
+
+footer .column i+i {
+    padding: 0 0.5em;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.815);
+    z-index: 9999;
+    transition: all 1.5s ease;
+}

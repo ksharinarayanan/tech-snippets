@@ -295,7 +295,9 @@ footer h4 {
 
 }
 
-
+.blog{
+    min-width: 1000px;
+}
 
 
 .blog h1 {

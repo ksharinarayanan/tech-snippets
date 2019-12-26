@@ -16,3 +16,6 @@ def home_view(request, *args, **kwargs):
 
     return render(request, 'home/landingpage.html', content)
 
+def about_view(request):
+    return render(request, 'pages/about.html', {})
+
