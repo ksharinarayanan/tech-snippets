@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Courier+Prime:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Arvo:700&display=swap');
 .blog .row .col-md-10 {
-    background-color: #EDAE49;
+    background-color: white;
 
     align-content: center;
     padding: 20px 20px;
@@ -121,3 +121,14 @@ footer h4 {
 #aaa {
     margin-left: 150px;
 }
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    #aaa{
+        margin-left: 0px;
+    }
+
+    #author-title{
+        margin-left: 0px;
+    }
+}
+

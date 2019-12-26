@@ -95,58 +95,59 @@
             <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
         </form>
         {% if form.name.errors %}
-            <script>alert("Please enter a valid name!")</script>
+        <script>alert("Please enter a valid name!")</script>
         {% endif %}
         {% if form.email.errors %}
-            <script>alert("Please enter a valid email address!")</script>
+        <script>alert("Please enter a valid email address!")</script>
         {% endif %}
         {% if form.comment.errors %}
-            <script>alert("Please enter a valid comment!")</script>
+        <script>alert("Please enter a valid comment!")</script>
         {% endif %}
     </div>
-    {% if comments %}
-        <div style="color: white;">
+    <div class="viewcomment">
+        <h1>Comments:</h1>
+        <div class="commentcontainer">
+        {% if comments %}
             {% for comment in comments %}
-                {{ comment.name }} : {{ comment.comment }} <br>
+            <p><strong>{{ comment.name }}</strong>~{{ comment.dateTime }}<br>{{ comment.comment }}</p><br>
             {% endfor %}
-        </div>
-        {% if new_comment %}
-            <script>alert("comment added")</script>
+        {% else %}
+            <p>No comments yet! :(</p>
         {% endif %}
+        </div>
+    </div>
+    {% if new_comment %}
+        <script>alert("comment added")</script>
+    {% endif %}
         
-    {% else %}
-        <div style="color: white;">
-            No comments yet!
+
+        {% if all_blogs %}
+        <hr class="comm">
+        <div class="re" id="re">
+            <h1>Other articles!</h1>
         </div>
-    {% endif %}
-    
-    {% if all_blogs %}
-    <hr class="comm">
-    <div class="re" id="re">
-        <h1>We Recommend you :)</h1>
-    </div>
-    <div class="sec">
-        <div class="row">
-            {% for each_blog in all_blogs %}
-            <div class="col-md-4">
-                {% if each_blog.id != blog.id %}
-                <div class="card" onclick="location.href='/blog/{{ each_blog.id }}';" style="cursor: pointer;">
-                    <img src="{{ each_blog.image.url }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ each_blog.title }}</h5>
-                        <p class="card-text">{{ each_blog.summary }}</p>
+        <div class="sec">
+            <div class="row">
+                {% for each_blog in all_blogs %}
+                <div class="col-md-4">
+                    {% if each_blog.id != blog.id %}
+                    <div class="card" onclick="location.href='/blog/{{ each_blog.id }}';" style="cursor: pointer;">
+                        <img src="{{ each_blog.image.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ each_blog.title }}</h5>
+                            <p class="card-text">{{ each_blog.summary }}</p>
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-                {% endif %}
+                {% endfor %}
+
             </div>
-            {% endfor %}
-
         </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 
-<!-- <footer>
+    <!-- <footer>
     <div class="container-fluid p-0">
         <div class="row text-left">
             <div class="col-md-5 col-sm-5">
@@ -182,4 +183,4 @@
 
 
 
-{% endblock %}
+    {% endblock %}
