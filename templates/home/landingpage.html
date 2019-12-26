@@ -160,13 +160,14 @@ hidden;" id="blog">
                 <div class="row">
                     <div class=" col-md-4 col-xs-2 ">
                         {{ blog.title }}
-                    </div>  
+                    </div> 
+                    <div class="col-md-5  col-xs-2">
+                        {{ blog.summary }}
+                    </div> 
                     <div class="col-md-3 col-xs-2">
                         <img src="{{ blog.image.url }}" alt="" width="150px" height="150px">
                     </div>
-                    <div class="col-md-5  col-xs-2">
-                        {{ blog.summary }}
-                    </div>
+                    
                     
                 </div>
 
