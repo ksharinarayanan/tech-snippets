@@ -1,4 +1,4 @@
-/* :root {
+:root {
     --bggradient: linear-gradient(to bottom, #ffb235, rgb(209, 129, 0));
 }
 
@@ -335,9 +335,9 @@ footer h4 {
     height: 500px;
     align-content: center;
     margin: 0px auto;
-} */
+}
 
-:root {
+/* :root {
     --bggradient: linear-gradient(to bottom, #ffb235, rgb(209, 129, 0));
 }
 
@@ -618,7 +618,6 @@ footer h4 {
     }
 }
 
-/*full*/
 
 .blog .row .col-md-10 {
     background-color: #EDAE49;
@@ -679,4 +678,4 @@ footer h4 {
     height: 500px;
     align-content: center;
     margin: 0px auto;
-}
+} */
