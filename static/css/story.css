@@ -21,7 +21,7 @@
     }
 }
 
-#scrolling-header {
+#scrolling-header{
     text-align: center;
     background-color: #EDAE49;
     color: black;
@@ -31,7 +31,6 @@
     z-index: 1;
     font-weight: bold;
     position: fixed;
-
     top: 0;
     width: 100%;
     transition: 0.2s;

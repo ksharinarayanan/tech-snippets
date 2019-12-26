@@ -21,14 +21,6 @@
 
 {% block body %}
 
-<!-- <div style="color:aliceblue">
-
-    <li>{{ blog.title }}</li>
-    <li>{{ blog.author }}</li>
-    <li>{{ blog.date }}</li>
-    <li>{{ blog.description }}</li>
-    <li><img src="{{ blog.image.url }}" alt="image not found"></li>
-</div> -->
 
 <div id="scrolling-header" onclick="location.href='/'" style="cursor: pointer;">
     <p>Tech Snippets</p>
@@ -45,11 +37,9 @@
 
         </nav>
 
-
-
-
-
     </div>
+
+ 
 
     <div class="hola" style="padding-top: 50px;">
         <div class="row">
@@ -70,8 +60,6 @@
 
     </div>
 
-
-
 </div>
 <div class="whole">
     <div class="row">
@@ -86,12 +74,12 @@
     </div>
 </div>
 <div>
-    <div class="comment">
+    <div class="comment" id="comment">
         <h1>Comment down your view.</h1>
         <hr class="comm">
-        <form action="." method="POST"> {% csrf_token %}
+        <form action="#comment" method="POST"> {% csrf_token %}
             {{ form.as_p }}
-            <!-- {{ form.email.errors }} -->
+            
             <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
         </form>
         {% if form.name.errors %}
@@ -107,80 +95,45 @@
     <div class="viewcomment">
         <h1>Comments:</h1>
         <div class="commentcontainer">
-        {% if comments %}
+            {% if comments %}
             {% for comment in comments %}
             <p><strong>{{ comment.name }}</strong>~{{ comment.dateTime }}<br>{{ comment.comment }}</p><br>
             {% endfor %}
-        {% else %}
+            {% else %}
             <p>No comments yet! :(</p>
-        {% endif %}
+            {% endif %}
         </div>
     </div>
-    {% if new_comment %}
-        <script>alert("comment added")</script>
-    {% endif %}
-        
+    <!-- {% if new_comment %}
+    <script>alert("comment added")</script>
+    {% endif %} -->
 
-        {% if all_blogs %}
-        <hr class="comm">
-        <div class="re" id="re">
-            <h1>Other articles!</h1>
-        </div>
-        <div class="sec">
-            <div class="row">
-                {% for each_blog in all_blogs %}
-                <div class="col-md-4">
-                    {% if each_blog.id != blog.id %}
-                    <div class="card" onclick="location.href='/blog/{{ each_blog.id }}';" style="cursor: pointer;">
-                        <img src="{{ each_blog.image.url }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ each_blog.title }}</h5>
-                            <p class="card-text">{{ each_blog.summary }}</p>
-                        </div>
+
+    {% if all_blogs %}
+    <hr class="comm">
+    <div class="re" id="re">
+        <h1>Other articles!</h1>
+    </div>
+    <div class="sec">
+        <div class="row">
+            {% for each_blog in all_blogs %}
+            <div class="col-md-4">
+                {% if each_blog.id != blog.id %}
+                <div class="card" onclick="location.href='/blog/{{ each_blog.id }}';" style="cursor: pointer;">
+                    <img src="{{ each_blog.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ each_blog.title }}</h5>
+                        <p class="card-text">{{ each_blog.summary }}</p>
                     </div>
-                    {% endif %}
                 </div>
-                {% endfor %}
-
+                {% endif %}
             </div>
-        </div>
-        {% endif %}
-    </div>
-
-    <!-- <footer>
-    <div class="container-fluid p-0">
-        <div class="row text-left">
-            <div class="col-md-5 col-sm-5">
-                <h4 class="fo">About us</h4>
-                <p class="textmo">hsdfifrhid tid tking kohli is used to participater in online competioto</p>
-
-
-            </div>
-            <div class="col-md-5 col-sm-5" id="aaa">
-                <h4 class="fo">Queries and Updates</h4>
-
-
-                <p class="textmo">Let us be social</p>
-                <div class="column text-light">
-                    <a href="https://www.google.com"><i class="fa fa-facebook-f"></i></a> 
-                    <a href="https://www.instagram.com/tech_snippets/"><i class="fa fa-instagram"></i></a>
-                    <i class="fa fa-twitter"></i>
-                    <i class="fa fa-youtube"></i>
-                </div>
-            </div>
-
-
-
+            {% endfor %}
 
         </div>
     </div>
+    {% endif %}
+</div>
 
 
-</footer> -->
-
-
-
-
-
-
-    {% endblock %}
+{% endblock %}

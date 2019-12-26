@@ -28,12 +28,11 @@ def blog_detail_view(request, id):
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
-            #print(comment_form.cleaned_data)
             data = comment_form.cleaned_data
             data['blog'] = obj
-            #print(data)
             Comments.objects.create(**data)
             new_comment = data
+            comment_form = CommentForm()
     else:
         comment_form = CommentForm()
 
