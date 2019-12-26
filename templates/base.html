@@ -69,19 +69,28 @@
         };
 
         function scrollFunction() {
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("scrolling-header").style.fontSize = "25px";
-                document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
-                document.getElementById("scrolling-header").style.textAlign = "left";
-                //document.getElementById("scrolling-header").style.backgroundColor = "#FF331F";
+            
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    if(window.screen.width < 500){
+                        document.getElementById("scrolling-header").style.fontSize = "10px";
+                    }
+                    else
+                        document.getElementById("scrolling-header").style.fontSize = "25px";
+                    document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
+                    document.getElementById("scrolling-header").style.textAlign = "left";
+                    //document.getElementById("scrolling-header").style.backgroundColor = "#FF331F";
 
-            } else {
-
-                document.getElementById("scrolling-header").style.fontSize = "60px";
-                document.getElementById("scrolling-header").style.textAlign = "center";
-                document.getElementById("scrolling-header").innerHTML = "Tech Snippets";
-                //document.getElementById("scrolling-header").style.backgroundColor = "black";
-            }
+                } else {
+                    if(window.screen.width < 500){
+                        document.getElementById("scrolling-header").style.fontSize = "25px";
+                    }
+                    else
+                        document.getElementById("scrolling-header").style.fontSize = "60px";
+                    document.getElementById("scrolling-header").style.textAlign = "center";
+                    document.getElementById("scrolling-header").innerHTML = "Tech Snippets";
+                    //document.getElementById("scrolling-header").style.backgroundColor = "black";
+                }
+           
         }
 
         

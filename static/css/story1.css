@@ -531,5 +531,8 @@ footer h4 {
         height: 200px;
     }
 
+    #scrolling-header p{
+        font-size: 25px;
+    }
     
 }
