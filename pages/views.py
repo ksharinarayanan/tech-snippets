@@ -21,18 +21,20 @@ def home_view(request, *args, **kwargs):
             result[comment.blog] = 1
     result = sorted(result.items(), key=lambda kv: kv[1], reverse=True)
 
-    
+    result = result[:4]
 
     result = dict(result)
 
     for blog in all_objects:
+        if len(result) == 4:
+            break;
         if blog in result:
             continue;
         else:
             result[blog] = 0
 
-    result = result[:4]
- 
+
+    result = dict(result)
 
     content = {
         'featured' : featured,
