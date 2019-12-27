@@ -21,7 +21,7 @@ def home_view(request, *args, **kwargs):
             result[comment.blog] = 1
     result = sorted(result.items(), key=lambda kv: kv[1], reverse=True)
 
-    result = result[:4]
+    
 
     result = dict(result)
 
@@ -31,7 +31,7 @@ def home_view(request, *args, **kwargs):
         else:
             result[blog] = 0
 
-    
+    result = result[:4]
  
 
     content = {
