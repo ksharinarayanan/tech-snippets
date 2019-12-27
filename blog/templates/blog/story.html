@@ -77,22 +77,22 @@
     <div class="comment" id="comment">
         <h1>Comment down your view.</h1>
         <hr class="comm">
-        <form action="#comment" method="POST"> {% csrf_token %}
+        <form action="#viewcomment" method="POST"> {% csrf_token %}
             {{ form.as_p }}
             
             <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
         </form>
         {% if form.name.errors %}
-        <script>alert("Please enter a valid name!")</script>
+        <script>alert("Please enter a valid name!");window.location="#comment"</script>
         {% endif %}
         {% if form.email.errors %}
-        <script>alert("Please enter a valid email address!")</script>
+        <script>alert("Please enter a valid email address!");window.location="#comment"</script>
         {% endif %}
         {% if form.comment.errors %}
-        <script>alert("Please enter a valid comment!")</script>
+        <script>alert("Please enter a valid comment!");window.location="#comment"</script>
         {% endif %}
     </div>
-    <div class="viewcomment">
+    <div class="viewcomment" id="viewcomment">
         <h1>Comments:</h1>
         <div class="commentcontainer">
             {% if comments %}
