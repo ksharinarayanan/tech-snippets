@@ -33,17 +33,6 @@ def blog_detail_view(request, id):
 
     result = {}
 
-    for c in comments:
-        reply = Comments.objects.filter(parent=c)
-
-        for r in reply:
-            if c in result:
-                result[c].append(r)
-            else:
-                result[c] = [r]
-
-    print(result)
-
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
@@ -61,12 +50,20 @@ def blog_detail_view(request, id):
 
     comment_form = CommentForm()
 
+    for c in comments:
+        reply = Comments.objects.filter(parent=c).order_by('dateTime').reverse()
+
+        for r in reply:
+            if c in result:
+                result[c].append(r)
+            else:
+                result[c] = [r]
+
     content = {
         'blog' : blog,
         'comments' : comments,
         'all_blogs' : all_blogs,
         'form' : comment_form,
-        'reply_form' : ReplyForm(),
         'result' : result,
     }
     return render(request, "blog/story.html", content)
