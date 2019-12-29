@@ -11,9 +11,6 @@ from comments.models import Comments
 from comments.forms import CommentForm
 from comments.models import Comments
 
-#model : replies
-from replies.models import Replies
-from replies.forms import ReplyForm
 
 # Create your views here.
 
