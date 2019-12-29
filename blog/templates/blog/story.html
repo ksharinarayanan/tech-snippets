@@ -84,18 +84,7 @@
             {% for comment in comments %}
             <p><strong>{{ comment.name }}</strong><br>~{{ comment.dateTime }}<br><br>{{ comment.comment }}</p><br>
             <div id="reply{{ comment.id }}" class="reply-class">
-                <form action="#reply{{ comment.id }}" method="POST" id="reply-form"> {% csrf_token %}
-                    Name : {{ form.name }}
-                    <input type="hidden" name="email" value="this_is_a_reply@nomail.com" id="">
-                    <br>
-                    Reply : {{ form.comment }}
-                    <br>
-                    <input type="hidden" name="parent_id" value="{{ comment.id }}" id="">
-                    <center><input type="submit" class="btn btn-outline-primary" value='Add reply' name="submit-reply"
-                            id="combut"></center>
-                </form>
 
-                <br>
                 <div class="reply-text">
                     {% if result %} 
                         {% for parent, replies in result.items %}
@@ -108,7 +97,17 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-                
+                <br>
+                <form action="#reply{{ comment.id }}" method="POST" id="reply-form"> {% csrf_token %}
+                    Name : {{ form.name }}
+                    <input type="hidden" name="email" value="this_is_a_reply@nomail.com" id="">
+                    <br>
+                    Reply : {{ form.comment }}
+                    <br>
+                    <input type="hidden" name="parent_id" value="{{ comment.id }}" id="">
+                    <center><input type="submit" class="btn btn-outline-primary" value='Add reply' name="submit-reply"
+                            id="combut"></center>
+                </form>
                 
             </div>
             <hr color="black">
