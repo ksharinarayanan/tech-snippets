@@ -404,34 +404,6 @@ footer h4 {
     color: white;
 }
 
-.bg-modal{ 
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    top: 0;
-    left: 0;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-.modal-content{
-    width: 500px;
-    height: 300px;
-    background-color: white;
-    opacity: 1;
-    position: relative;
-}
-.close{
-    position: absolute;
-    font-weight: bolder;
-    font-size: 40px;
-    right: 0;
-    padding-right: 10px;
-    transform: rotate(45deg);
-    cursor: pointer;
-}
-
 .reply-class{
     margin-left: 12em;
 }
