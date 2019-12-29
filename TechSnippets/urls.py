@@ -33,6 +33,7 @@ urlpatterns = [
     path('', home_view),
 
     path('about/', about_view),
+    path('contact/', about_view),
     #path('blog/', blog_view),
     path('blog/<int:id>/', blog_detail_view),
     path('<str:author>/', author_view),

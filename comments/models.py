@@ -7,7 +7,8 @@ class Comments(models.Model):
     email           =   models.EmailField()
     comment         =   models.TextField()
     dateTime        =   models.DateTimeField(auto_now_add=True)
-    blog            =   models.ForeignKey(Blog, on_delete=models.CASCADE, default=None)
+    blog            =   models.ForeignKey(Blog, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    parent          =   models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     class Meta:
         verbose_name_plural = "Comments"

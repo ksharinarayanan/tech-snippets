@@ -1,6 +1,6 @@
 from django import forms
 
-class CommentForm(forms.Form):
+class ReplyForm(forms.Form):
     name    =   forms.CharField(widget=forms.TextInput(
         attrs={
             "name" : "name",
@@ -15,9 +15,9 @@ class CommentForm(forms.Form):
             "id" : "exampleFormControlInput1",
         }
     ))
-    comment   =   forms.CharField(required=False, widget=forms.Textarea(
+    comment   =   forms.CharField(widget=forms.Textarea(
         attrs={
-            "name" : "comment",
+            "name" : "reply",
             "class" : "form-control",
             "id" : "exampleFormControlTextarea1",
             "rows" : "3"

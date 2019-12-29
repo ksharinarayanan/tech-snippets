@@ -276,8 +276,8 @@ body {
 }
 
 .viewcomment {
-    margin-left: 24em;
-    margin-right: 24em;
+    margin-left: 12em;
+    margin-right: 12em;
     padding: 2em;
     background-color: white;
 
@@ -304,7 +304,7 @@ body {
 .commentcontainer strong {
     font-weight: 800;
     font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
-    color: black;
+    color: #F9D342;
     padding-right: 0.5em;
 
     font-size: 25px;
@@ -313,10 +313,10 @@ body {
 .commentcontainer p {
     font-weight: 600;
     font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
-    color: black;
+    color: #F9D342;
     font-size: 17px;
     font-weight: bold;
-    background-color: #e5e5e5;
+    background-color: #292826;
     border-radius: 6px;
 
 
@@ -404,68 +404,62 @@ footer h4 {
     color: white;
 }
 
-/*
-
-.hola .row {
-
-
-    background-color: orange;
+.bg-modal{ 
     width: 100%;
-
-
-    margin-top: 100px;
-
-
-
-}
-
-
-.hola .row .col-xl-2 h6 {
-    font-size: 2px;
-}
-
-.hola .row .col-md-4 h6 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    font-size: 15px;
-    color: black;
-
-
-    vertical-align: center;
-
-
-
-
-
-
-
-
-}
-
-.hola .row .col-md-4 {
-    padding: 15vim 15vim;
-    left: 2.5em;
-    bottom: 0em;
-    margin: 0px auto;
-
-}
-
-
-
-.amigo .row .col-md-4 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 50px;
-    font-weight: bolder;
-
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
     position: absolute;
-    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal-content{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    opacity: 1;
+    position: relative;
+}
+.close{
+    position: absolute;
+    font-weight: bolder;
+    font-size: 40px;
+    right: 0;
+    padding-right: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.reply-class{
+    margin-left: 12em;
+}
+
+.reply-text strong{
+    font-weight: 800;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    color: black;
+    padding-right: 0.5em;
+
+    font-size: 25px;
+}
+
+.reply-text p{
+    font-weight: 600;
+    font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #768591;
+    border-radius: 6px;
+
+    margin: 0em auto;
+    padding: 1em;
+    vertical-align: middle;
+}
 
 
-
-
-
-
-}*/
 .replyform input {
     width: 100%;
 
@@ -498,9 +492,11 @@ footer h4 {
     }
 
     .viewcomment {
-        width: 75%;
+        width: 80%;
         /* margin: -4px; */
-        margin-left: 70px;
+        margin-left: 50px;
+        /* margin-right: 0px;
+        margin-left: 3px; */
     }
 
     #aaa {
@@ -538,5 +534,12 @@ footer h4 {
     #scrolling-header p{
         font-size: 25px;
     }
+
+    .reply-class{
+        margin-left: 0;
+    }
     
+    /* footer{
+        width: 100%;
+    } */
 }

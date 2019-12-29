@@ -1,105 +1,136 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+    <style>
+        .bg-modal{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        .modal-content{
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            opacity: 1;
+            position: relative;
+        }
+        .close{
+            position: absolute;
+            font-weight: bolder;
+            font-size: 40px;
+            right: 0;
+            padding-right: 10px;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+    </style>
 
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% block head %}
     {% endblock %}
 </head>
 
 <body>
-    
-    <!-- <div id="scrolling-header">
-        <p>Tech Snippets</p>
-    </div> -->
-    
 
-        {% block body %}
-        {% endblock %}
-        <footer>
-            <div class="container-fluid p-0">
-                <div class="row text-left">
-                    <div class="col-md-5 col-sm-5">
-                        <h4 class="fo">About us</h4>
-                        <p class="textmo">hsdfifrhid tid tking kohli is used to participater in online competioto</p>
-        
-        
-                    </div>
-                    <div class="col-md-5 col-sm-5" id="aaa">
-                        <h4 class="fo">Queries and Updates</h4>
-        
-        
-                        <p class="textmo">Let us be social</p>
-                        <div class="column text-light">
-                            <!-- <a href="https://www.google.com"><i class="fa fa-facebook-f"></i></a> -->
-                            <a href="https://www.instagram.com/tech_snippets/"><i class="fa fa-instagram"></i></a>
-                            <!-- <i class="fa fa-twitter"></i>
-                            <i class="fa fa-youtube"></i> -->
-                        </div>
-                    </div>
-        
-        
-        
-        
+    
+    {% block body %}
+    {% endblock %}
+     
+    <footer style="width: 100%;">
+        <div class="container-fluid p-0">
+            <div class="row text-left" id="contact">
+
+                <div class="col-md-5 col-sm-5" style="cursor: pointer;">
+                    <a href="/about/"><h4 class="fo">About us</h4></a>
+                    <p class="textmo" onclick="location.href='/about/'">We are tech enthusiasts bringing you information about the latest tech happening around the world! Click to know more.</p>
+                    <br>
                 </div>
+                
+                <div class="col-md-5 col-sm-5" id="aaa">
+                    <h4 class="fo">Queries and Updates</h4>
+
+
+                    <p class="textmo">Let us be social</p>
+                    <div class="column text-light">
+                        <a href="https://www.instagram.com/tech_snippets/"><i class="fa fa-instagram" style="font-size: 50px;"></i></a>
+                    </div>
+                </div>
+
+                <div id="space"><br><br><br></div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <center style="padding-top: 50px;">CONTACT US AT techsnippets718@gmail.com</center>
+
+
             </div>
-        
-        
-        </footer>
+        </div>
+
+
+    </footer s>
     <script>
         // When the user scrolls down 50px from the top of the document, resize the scrolling-header's font size
 
-        
 
         window.onscroll = function () {
             scrollFunction()
         };
 
         function scrollFunction() {
-            
-                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                    if(window.screen.width < 500){
-                        document.getElementById("scrolling-header").style.fontSize = "10px";
-                    }
-                    else
-                        document.getElementById("scrolling-header").style.fontSize = "25px";
-                    document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
-                    document.getElementById("scrolling-header").style.textAlign = "center";
 
-                } else {
-                    if(window.screen.width < 500){
-                        document.getElementById("scrolling-header").style.fontSize = "25px";
-                    }
-                    else
-                        document.getElementById("scrolling-header").style.fontSize = "60px";
-                    document.getElementById("scrolling-header").style.textAlign = "center";
-                    document.getElementById("scrolling-header").innerHTML = "Tech Snippets";                }
-           
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                if (window.screen.width < 500) {
+                    document.getElementById("scrolling-header").style.fontSize = "10px";
+                }
+                else
+                    document.getElementById("scrolling-header").style.fontSize = "25px";
+                document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
+                document.getElementById("scrolling-header").style.textAlign = "center";
+
+            } else {
+                if (window.screen.width < 500) {
+                    document.getElementById("scrolling-header").style.fontSize = "25px";
+                }
+                else
+                    document.getElementById("scrolling-header").style.fontSize = "60px";
+                document.getElementById("scrolling-header").style.textAlign = "center";
+                document.getElementById("scrolling-header").innerHTML = "Tech Snippets";
+            }
+
         }
 
-        
 
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
-        {% block script %}
-        {% endblock %}
+    
+    {% block script %}
+    {% endblock %}
 
 
 </body>

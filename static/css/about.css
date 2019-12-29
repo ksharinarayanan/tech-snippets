@@ -37,6 +37,9 @@ body {
     #hari {
         margin-top: 600px;
     }
+    .panel{
+        width: auto;
+    }
 }
 
 .panel i {
@@ -49,6 +52,7 @@ body {
 
 .panel {
     height: 500px;
+    width: 300px;
 }
 
 .section1 .row .col-md-10 .panel {

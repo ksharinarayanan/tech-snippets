@@ -279,9 +279,17 @@ footer h4 {
         width: max-width;
 
     }
+
+    #space{
+        visibility: hidden;
+    }
 }
 
 /*full*/
+#space{
+    visibility: visible;
+}
+
 
 .blog .row .col-md-10 {
     background-color: #EDAE49;
@@ -345,3 +353,4 @@ footer h4 {
     align-content: center;
     margin: 0px auto;
 }
+

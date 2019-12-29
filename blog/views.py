@@ -1,15 +1,24 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 
+
 from django import forms
-
+# model : blog
 from .models import Blog
-from comments.models import Comments
 
+# model : comments
+from comments.models import Comments
 from comments.forms import CommentForm
 from comments.models import Comments
 
+#model : replies
+from replies.models import Replies
+from replies.forms import ReplyForm
+
 # Create your views here.
+
+
+
 def blog_view(request):
     obj = Blog.objects.all().order_by('id').reverse()
     
@@ -21,28 +30,47 @@ def blog_view(request):
 
 def blog_detail_view(request, id):
     #obj = Blog.objects.get(id=id)
-    obj = get_object_or_404(Blog, id=id)
-    comments = Comments.objects.filter(blog=obj).order_by('dateTime').reverse()
-    all_obj = Blog.objects.exclude(id=obj.id).order_by('id').reverse()[:3]
-    new_comment = {}
+    blog = get_object_or_404(Blog, id=id)
+    comments = Comments.objects.filter(blog=blog).order_by('dateTime').reverse()
+    all_blogs = Blog.objects.exclude(id=blog.id).order_by('id').reverse()[:3]
+
+    result = {}
+
+    for c in comments:
+        reply = Comments.objects.filter(parent=c)
+
+        for r in reply:
+            if c in result:
+                result[c].append(r)
+            else:
+                result[c] = [r]
+
+    print(result)
+
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
-            data = comment_form.cleaned_data
-            data['blog'] = obj
-            Comments.objects.create(**data)
-            new_comment = data
-            comment_form = CommentForm()
-    else:
-        comment_form = CommentForm()
+            if 'parent_id' in request.POST:
+                Comments.objects.create(
+                    name = request.POST.get("name"),
+                    email = request.POST.get("email"),
+                    comment = request.POST.get("comment"),
+                    parent = Comments.objects.get(id=request.POST.get("parent_id")),
+                )
+            else:
+                data = comment_form.cleaned_data
+                data['blog'] = blog
+                Comments.objects.create(**data)
 
+    comment_form = CommentForm()
 
     content = {
-        'blog' : obj,
+        'blog' : blog,
         'comments' : comments,
-        'all_blogs' : all_obj,
+        'all_blogs' : all_blogs,
         'form' : comment_form,
-        'new_comment' : new_comment
+        'reply_form' : ReplyForm(),
+        'result' : result,
     }
     return render(request, "blog/story.html", content)
 

@@ -7,6 +7,8 @@
 <title>{{ blog.title }}</title>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -31,7 +33,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg ">
             <a class="navbar-brand" href="#">
-                <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+                <!-- <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""> -->
             </a>
             <div class="mr-auto"></div>
 
@@ -41,24 +43,24 @@
 
 </div>
 
-    <div class="hola" style="padding-top: 50px;">
-        <div class="row">
-            <div class="col-md-6 col-xs-2">
+<div id="home" class="hola" style="padding-top: 50px;">
+    <div class="row">
+        <div class="col-md-6 col-xs-2">
 
-                <img src="{{ blog.image.url }}" id="akil" alt="" class="pic">
+            <img src="{{ blog.image.url }}" id="akil" alt="" class="pic">
 
-            </div>
-            <div class="col-md-6 col-xs-2 " id="short">
-                <h1>{{ blog.title }}</h1>
-                <p>{{ blog.summary }}</p>
-                <p class="dat" id="dat">
-                    <a href="/{{ blog.author }}/">{{ blog.author }}</a> | {{ blog.date }}
-                </p>
-
-            </div>
         </div>
+        <div class="col-md-6 col-xs-2 " id="short">
+            <h1>{{ blog.title }}</h1>
+            <p>{{ blog.summary }}</p>
+            <p class="dat" id="dat">
+                <a href="/{{ blog.author }}/">{{ blog.author }}</a> | {{ blog.date }}
+            </p>
 
+        </div>
     </div>
+
+</div>
 
 
 <div class="whole">
@@ -73,41 +75,69 @@
         </div>
     </div>
 </div>
-<div>
-    <div class="comment" id="comment">
-        <h1>Comment down your view.</h1>
-        <hr class="comm">
-        <form action="#viewcomment" method="POST"> {% csrf_token %}
-            {{ form.as_p }}
-            
-            <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
-        </form>
-        {% if form.name.errors %}
-        <script>alert("Please enter a valid name!");window.location="#comment"</script>
-        {% endif %}
-        {% if form.email.errors %}
-        <script>alert("Please enter a valid email address!");window.location="#comment"</script>
-        {% endif %}
-        {% if form.comment.errors %}
-        <script>alert("Please enter a valid comment!");window.location="#comment"</script>
-        {% endif %}
-    </div>
+<div style="padding-top: 200px;">
+
     <div class="viewcomment" id="viewcomment">
         <h1>Comments:</h1>
         <div class="commentcontainer">
             {% if comments %}
             {% for comment in comments %}
-            <p><strong>{{ comment.name }}</strong>~{{ comment.dateTime }}<br>{{ comment.comment }}</p><br>
+            <p><strong>{{ comment.name }}</strong><br>~{{ comment.dateTime }}<br><br>{{ comment.comment }}</p><br>
+            <div id="reply{{ comment.id }}" class="reply-class">
+                <form action="#reply{{ comment.id }}" method="POST"> {% csrf_token %}
+                    Name : {{ form.name }}
+                    <br>
+                    Email : {{ form.email }}
+                    <br>
+                    Reply : {{ form.comment }}
+                    <br>
+                    <input type="hidden" name="parent_id" value="{{ comment.id }}" id="">
+                    <center><input type="submit" class="btn btn-outline-primary" value='Add reply' name="submit-reply"
+                            id="combut"></center>
+                </form>
+
+                <br>
+                <div class="reply-text">
+                    {% if result %} 
+                        {% for parent, replies in result.items %}
+                            {% if parent == comment %}
+                            <strong style="color: #292826;">REPLIES</strong> <br><br>
+                                {% for reply in replies %}
+                                    <p><strong>{{ reply.name }}</strong><br>~{{ reply.dateTime }}<br><br>{{ reply.comment }}</p><br>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                
+            </div>
+            <hr color="black">
             {% endfor %}
             {% else %}
             <p>No comments yet! :(</p>
             {% endif %}
-        </div>
+        </div style="padding: 5px;">
     </div>
-    <!-- {% if new_comment %}
-    <script>alert("comment added")</script>
-    {% endif %} -->
 
+    <div class="comment" id="comment">
+        <h1>Comment down your view.</h1>
+        <hr class="comm">
+        <form action="#viewcomment" method="POST"> {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" class="btn btn-outline-success" value='Add comment' name="submit-comment" id="combut">
+        </form>
+        {% if form.name.errors %}
+        <script>alert("Please enter a valid name!"); window.location = "#comment"</script>
+        {% endif %}
+        {% if form.email.errors %}
+        <script>alert("Please enter a valid email address!"); window.location = "#comment"</script>
+        {% endif %}
+        {% if form.comment.errors %}
+        <script>alert("Please enter a valid comment!"); window.location = "#comment"</script>
+        {% endif %}
+    </div>
 
     {% if all_blogs %}
     <hr class="comm">
@@ -135,5 +165,32 @@
     {% endif %}
 </div>
 
+
+
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+    document.getElementById("reply").addEventListener("click",
+        function () {
+            document.querySelector(".bg-modal").style.display = "flex";
+            location.href = "#home";
+        }
+    )
+    document.querySelector(".close").addEventListener("click",
+        function () {
+            document.querySelector(".bg-modal").style.display = "none";
+            location.href = "#viewcomment";
+        }
+    )
+
+    function showModal() {
+        document.querySelector(".bg-modal").style.display = "flex";
+        location.href = "#home";
+    }
+
+</script>
 
 {% endblock %}
