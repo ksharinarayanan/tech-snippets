@@ -70,7 +70,15 @@
                 <!-- Apple Review Goes Here -->
             </h1>
             <p>
-                {{ blog.description }}
+                {% if blog_content %}
+                    {% for para in blog_content %}
+                        {{ para.text }}
+                        <br> <br> <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                {% else %}
+                    {{ blog.description }}
+                {% endif %}
             </p>
         </div>
     </div>
@@ -170,25 +178,6 @@
 
 
 {% block script %}
-<script>
-    document.getElementById("reply").addEventListener("click",
-        function () {
-            document.querySelector(".bg-modal").style.display = "flex";
-            location.href = "#home";
-        }
-    )
-    document.querySelector(".close").addEventListener("click",
-        function () {
-            document.querySelector(".bg-modal").style.display = "none";
-            location.href = "#viewcomment";
-        }
-    )
 
-    function showModal() {
-        document.querySelector(".bg-modal").style.display = "flex";
-        location.href = "#home";
-    }
-
-</script>
 
 {% endblock %}

@@ -11,6 +11,8 @@ from comments.models import Comments
 from comments.forms import CommentForm
 from comments.models import Comments
 
+#model: 
+from blogContent.models import BlogContent
 
 # Create your views here.
 
@@ -30,6 +32,8 @@ def blog_detail_view(request, id):
     blog = get_object_or_404(Blog, id=id)
     comments = Comments.objects.filter(blog=blog).order_by('dateTime').reverse()
     all_blogs = Blog.objects.exclude(id=blog.id).order_by('id').reverse()[:3]
+
+    blog_content = BlogContent.objects.filter(blog=blog)
 
     result = {}
 
@@ -66,6 +70,7 @@ def blog_detail_view(request, id):
         'all_blogs' : all_blogs,
         'form' : comment_form,
         'result' : result,
+        'blog_content' : blog_content,
     }
     return render(request, "blog/story.html", content)
 
