@@ -39,10 +39,11 @@ def blog_detail_view(request, id):
             if 'parent_id' in request.POST:
                 Comments.objects.create(
                     name = request.POST.get("name"),
-                    email = request.POST.get("email"),
                     comment = request.POST.get("comment"),
+                    email = request.POST.get("email"),
                     parent = Comments.objects.get(id=request.POST.get("parent_id")),
                 )
+                #print(Comments.objects.get(name="CSK"))
             else:
                 data = comment_form.cleaned_data
                 data['blog'] = blog

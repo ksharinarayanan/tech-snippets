@@ -84,10 +84,9 @@
             {% for comment in comments %}
             <p><strong>{{ comment.name }}</strong><br>~{{ comment.dateTime }}<br><br>{{ comment.comment }}</p><br>
             <div id="reply{{ comment.id }}" class="reply-class">
-                <form action="#reply{{ comment.id }}" method="POST"> {% csrf_token %}
+                <form action="#reply{{ comment.id }}" method="POST" id="reply-form"> {% csrf_token %}
                     Name : {{ form.name }}
-                    <br>
-                    Email : {{ form.email }}
+                    <input type="hidden" name="email" value="this_is_a_reply@nomail.com" id="">
                     <br>
                     Reply : {{ form.comment }}
                     <br>

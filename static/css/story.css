@@ -408,6 +408,8 @@ footer h4 {
     margin-left: 12em;
 }
 
+
+
 .reply-text strong{
     font-weight: 800;
     font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
@@ -514,4 +516,8 @@ footer h4 {
     /* footer{
         width: 100%;
     } */
+}
+
+#reply-form{
+    height: 300px;
 }

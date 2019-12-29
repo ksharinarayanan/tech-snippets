@@ -10,7 +10,7 @@ def home_view(request, *args, **kwargs):
     featured = Blog.objects.all().order_by('id').reverse()[:1]
 
     all_objects = Blog.objects.all().order_by('id').reverse()
-    all_comments = Comments.objects.all()
+    all_comments = Comments.objects.filter(parent=None)
 
     result = {}
 
@@ -35,7 +35,7 @@ def home_view(request, *args, **kwargs):
 
 
     result = dict(result)
-
+    print(result)
     content = {
         'featured' : featured,
         'trending' : result,
