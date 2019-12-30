@@ -8,24 +8,30 @@ from comments.models import Comments
 # Create your views here.
 def home_view(request, *args, **kwargs):
     featured = Blog.objects.all().order_by('id').reverse()[:1]
-
-    all_objects = Blog.objects.all().order_by('id').reverse()
-    all_comments = Comments.objects.filter(parent=None)
-
+    all_blogs = Blog.objects.all().order_by('-id')
+    recent_five_blogs = Blog.objects.exclude(id=None).order_by('id').reverse()[:5]
+    all_comments = Comments.objects.all()
+    #print(recent_five_blogs)
     result = {}
 
     for comment in all_comments: 
-        if comment.blog in result:
-            result[comment.blog] += 1
+        if comment.parent == None:
+            if comment.blog in result:
+                result[comment.blog] += 1
+            else:
+                result[comment.blog] = 1
         else:
-            result[comment.blog] = 1
+            if comment.parent.blog in result:
+                result[comment.parent.blog] += 1
+            else:
+                result[comment.parent.blog] = 1
     result = sorted(result.items(), key=lambda kv: kv[1], reverse=True)
 
     result = result[:4]
 
     result = dict(result)
 
-    for blog in all_objects:
+    for blog in all_blogs:
         if len(result) == 4:
             break;
         if blog in result:
@@ -35,11 +41,11 @@ def home_view(request, *args, **kwargs):
 
 
     result = dict(result)
-    print(result)
+    #print(result)
     content = {
         'featured' : featured,
         'trending' : result,
-        'all_blogs' : all_objects,
+        'recent_five_blogs' : recent_five_blogs,
     }
 
     return render(request, 'home/landingpage.html', content)

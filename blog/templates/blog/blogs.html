@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>{{ author }}</title>
+<title>Blogs</title>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 
@@ -15,55 +17,49 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="{% static 'css/author.css' %}">
-<!-- <link rel="stylesheet" href="{% static 'css/landingpage.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/blogs.css' %}">
 {% endblock %}
 
+
 {% block body %}
+
 <div id="scrolling-header" onclick="location.href='/'" style="cursor: pointer;">
     <p>Tech Snippets</p>
 </div>
 
 <div class="blog" style="margin-top:200px;padding:15px 15px 100px;font-size:30px; overflow: 
-hidden;" id="blog">
-    <h1 id="author-title" style="text-align: center; color: white;">Blogs from {{ author }}</h1>
-    {% if blogs %}
-    {% for blog in blogs %}
-    <div class="row" style="padding-bottom: 60px;">
-
-        <div class="col-xs-2 col-md-1"> </div>
-        <div class="panel1">
-            <div class="col-md-10 col-xs-2" onclick="location.href='/blog/{{ blog.id}}/'" style="cursor: pointer;">
+hidden;">
+    <h1 style="color: gold;" id="blog-heading">All blogs</h1>
+    <div class="row">
+        <div class="col-xs-2 col-md-1"> 
+            
+        </div>
+        
+        {% for blog in blogs %}
+        <div class="panel1" style="padding-bottom: 60px;">
+            <div class="col-md-10 col-xs-2"
+                onclick="location.href='/blog/{{ blog.id }}/';" style="cursor: pointer; background-color: white;">
 
                 <div class="row">
                     <div class=" col-md-4 col-xs-2 ">
                         {{ blog.title }}
-                    </div>
+                    </div> 
                     <div class="col-md-5  col-xs-2">
                         {{ blog.summary }}
-                    </div>
+                    </div> 
                     <div class="col-md-3 col-xs-2">
                         <img src="{{ blog.image.url }}" alt="" width="100%" height="100%">
                     </div>
+                    
+                    
                 </div>
 
             </div>
         </div>
+        {% endfor %}
 
         <div class=" col-md-1 col-xs-2 "> </div>
     </div>
-    {% endfor %}
-    {% else %}
-        <div style="color: white; text-align: center;">
-            No articles found :(
-                <br>
-            <div style="padding-top: 20px;" >
-                <button onclick="location.href='/'">TAKE ME BACK HOME</button>
-            </div>
-            
-        </div>
-        
-    {% endif %}
 </div>
-
 {% endblock %}
+

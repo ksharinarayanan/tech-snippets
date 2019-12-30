@@ -22,7 +22,7 @@ def blog_view(request):
         'blogs' : obj,
     }
 
-    return render(request, "blog/index.html", content)
+    return render(request, "blog/blogs.html", content)
 
 def blog_detail_view(request, id):
     #obj = Blog.objects.get(id=id)
@@ -51,7 +51,7 @@ def blog_detail_view(request, id):
     comment_form = CommentForm()
 
     for c in comments:
-        reply = Comments.objects.filter(parent=c).order_by('dateTime').reverse()
+        reply = Comments.objects.filter(parent=c).order_by('dateTime')
 
         for r in reply:
             if c in result:
