@@ -70,15 +70,7 @@
                 <!-- Apple Review Goes Here -->
             </h1>
             <p>
-                {% if blog_content %}
-                    {% for para in blog_content %}
-                        {{ para.text }}
-                        <br> <br> <br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    {% endfor %}
-                {% else %}
-                    {{ blog.description }}
-                {% endif %}
+                {{ blog.description|linebreaks }}
             </p>
         </div>
     </div>
