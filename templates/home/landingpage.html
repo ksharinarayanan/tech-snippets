@@ -177,7 +177,7 @@ hidden;" id="blog">
         <div class=" col-md-1 col-xs-2 "> </div>
     </div>
     {% endfor %}
-    {% if recent_five_blogs|length > 5 %}
+    {% if all_blogs|length > 5 %}
         <center><button class="btn btn-outline-info" onclick="location.href='/blogs/'">View all blogs</button></center>
     {% endif %}
 </div>

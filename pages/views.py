@@ -45,6 +45,7 @@ def home_view(request, *args, **kwargs):
     content = {
         'featured' : featured,
         'trending' : result,
+        'all_blogs' : all_blogs,
         'recent_five_blogs' : recent_five_blogs,
     }
 
