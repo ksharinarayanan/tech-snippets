@@ -1,1 +1,1 @@
-/media/posts/*
+media/posts/*
