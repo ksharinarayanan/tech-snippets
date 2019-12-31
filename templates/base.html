@@ -1,35 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <style>
-        .bg-modal{
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            top: 0;
-            left: 0;
-            position: absolute;
-            justify-content: center;
-            align-items: center;
-            display: none;
-        }
-        .modal-content{
-            width: 500px;
-            height: 300px;
-            background-color: white;
-            opacity: 1;
-            position: relative;
-        }
-        .close{
-            position: absolute;
-            font-weight: bolder;
-            font-size: 40px;
-            right: 0;
-            padding-right: 10px;
-            transform: rotate(45deg);
-            cursor: pointer;
-        }
-    </style>
 
 <head>
     <meta charset="UTF-8">
@@ -92,9 +63,9 @@
 
             </div>
         </div>
-
-
-    </footer s>
+        <br>
+        <div style="text-align:center;">If you are interested in writing blogs, feel free to contact us!</div>
+    </footer>
     <script>
         // When the user scrolls down 50px from the top of the document, resize the scrolling-header's font size
 
@@ -111,23 +82,30 @@
                 }
                 else
                     document.getElementById("scrolling-header").style.fontSize = "25px";
-                document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles"
+                document.getElementById("scrolling-header").innerHTML = "Tech Snippets - Blog for Technophiles";
                 document.getElementById("scrolling-header").style.textAlign = "center";
+                /* document.getElementById("logo").style.visibility = "hidden"; */         
 
+                /* document.getElementById("logo").width = "100px";
+                document.getElementById("logo").height = "100px"; */
+                /* document.getElementById("heading").style.visibility = "visible"; */
             } else {
-                if (window.screen.width < 500) {
+                
+                 if (window.screen.width < 500) {
                     document.getElementById("scrolling-header").style.fontSize = "25px";
                 }
+                
                 else
                     document.getElementById("scrolling-header").style.fontSize = "60px";
                 document.getElementById("scrolling-header").style.textAlign = "center";
-                document.getElementById("scrolling-header").innerHTML = "Tech Snippets";
+                document.getElementById("scrolling-header").innerHTML = "Tech Snippets";  
+                /* document.getElementById("logo").style.visibility = "visible";   */    
             }
 
         }
 
 
-    </script>
+    </script> 
     
     {% block script %}
     {% endblock %}
