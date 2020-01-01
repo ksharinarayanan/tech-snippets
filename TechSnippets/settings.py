@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rt=_b%c25^_kmna*j331e7d3oayk&)t9%u@=6m3*3&#&5iw$t!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False   
+DEBUG = True   
 
 ALLOWED_HOSTS = ['*']
 
@@ -89,14 +89,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',    
         'NAME': 'techsnippets',
-	'USER': 'techsnippets@techsnippets',
-	'PASSWORD': 'Incorrect@1234',
-	'HOST': 'techsnippets.mysql.database.azure.com',   
-	'PORT': '',
-	'OPTIONS': {
-		'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        	'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'},
- 	},
+        'USER': 'techsnippets@techsnippets',
+        'PASSWORD': 'Incorrect@1234',
+        'HOST': 'techsnippets.mysql.database.azure.com',   
+        'PORT': '',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+                'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'},
+        },
 
     }
 }
