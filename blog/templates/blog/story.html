@@ -73,7 +73,7 @@
                 <!-- Apple Review Goes Here -->
             </h1>
             <p>
-                {{ blog.description|linebreaks }}
+                {{ blog.description|safe|linebreaks }}
             </p>
         </div>
     </div>
