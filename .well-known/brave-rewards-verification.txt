@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: tech-snippets.azurewebsites.net
+Token: 2db698f0de7f1486a21de106aab15bfb7e49534c0e0fed96ff17cf48dfbfdb9b
