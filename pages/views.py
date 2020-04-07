@@ -55,5 +55,5 @@ def about_view(request):
     return render(request, 'pages/about.html', {})
 
 def brave_view(request):
-    return render(request, '/static/.well-known/brave-rewards-verification.txt')
-
+    response = redirect("/static/.well-known/brave-rewards-verification.txt")
+    return response
