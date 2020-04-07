@@ -55,5 +55,7 @@ def home_view(request, *args, **kwargs):
 def about_view(request):
     return render(request, 'pages/about.html', {})
 
+""" 
 def brave_view(request):
     return redirect("https://tech-snippets.azurewebsites.net/static/.well-known/brave-rewards-verification.txt")
+ """
