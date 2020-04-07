@@ -38,7 +38,7 @@ urlpatterns = [
     path('blog/<int:id>/', blog_detail_view),
     path('<str:author>/', author_view),
 
-    path('/.well-known/brave-rewards-verification.txt', brave_view),
+    path('.well-known/brave-rewards-verification.txt', brave_view),
 
 ]
 
