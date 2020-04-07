@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from pages.views import home_view, about_view, brave_view
+from pages.views import home_view, about_view
 from blog.views import blog_view
 from blog.views import blog_detail_view, author_view
 
