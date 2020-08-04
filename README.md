@@ -1,1 +1,1 @@
-## Tech blog making use of Django (python framework)
+## Tech blog made using Django (python framework)
