@@ -1,5 +1,5 @@
 Django==2.2.24
 mysqlclient==1.4.6
-Pillow==8.3.2
+Pillow==9.3.0
 pytz==2019.3
 virtualenv
